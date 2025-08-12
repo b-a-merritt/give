@@ -7,9 +7,6 @@ class Give():
     commands: dict[str, Callable] = dict()
     ctx: Context
 
-    def __init__(self):
-        self.ctx = Context()
-
     def register(self, name: str, cmd: Callable[[Context], None]):
         self.commands[name] = cmd
 
@@ -19,4 +16,5 @@ class Give():
         if not cmd:
             raise CommandNotFound()
         
+        self.ctx = Context(name)
         cmd(self.ctx, *args)

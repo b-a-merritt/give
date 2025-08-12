@@ -10,6 +10,7 @@ from give.constants import GIVE_CURRENT_BRANCH
 from give.constants import GIVE_DEFAULT_BRANCH
 from give.constants import GIVE_DIR
 from give.constants import GIVE_INITIAL_COMMIT
+from give.constants import GIVE_STAGING_DIR
 from give.exceptions import AlreadyGiveProject
 
 def init(_: Context) -> None:
@@ -37,3 +38,5 @@ def init(_: Context) -> None:
     open(f'{GIVE_DIR}/{GIVE_COMMITS_DIR}/{GIVE_INITIAL_COMMIT}/{GIVE_BEFORE}', 'w')
     open(f'{GIVE_DIR}/{GIVE_COMMITS_DIR}/{GIVE_INITIAL_COMMIT}/{GIVE_AFTER}', 'w')
 
+    # stage
+    os.mkdir(f'{GIVE_DIR}/{GIVE_STAGING_DIR}')
