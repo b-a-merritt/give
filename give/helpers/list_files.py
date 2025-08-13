@@ -7,16 +7,16 @@ def list_files(path: str, ignore_patterns: list[Callable[[str], bool]]) -> list[
     Collects all files not ignored from the give project
     """
     path_queue = []
-    files_: list[str] = []
+    files: list[str] = []
 
-    if any(test_(path) for test_ in ignore_patterns):
+    if any(test(path) for test in ignore_patterns):
         return []
     
     curr = Path(path)
     if curr.is_dir():
         path_queue.append(curr)
     else:
-        files_.append(str(curr.resolve()))
+        files.append(str(curr.resolve()))
 
     while len(path_queue):
         curr = path_queue.pop(0)
@@ -29,6 +29,6 @@ def list_files(path: str, ignore_patterns: list[Callable[[str], bool]]) -> list[
                 if entry.is_dir():
                     path_queue.append(entry)
                 else:
-                    files_.append(str(entry.resolve()))
-    
-    return files_
+                    files.append(str(entry.resolve()))
+
+    return files

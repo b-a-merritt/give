@@ -35,8 +35,8 @@ def init(_: Context) -> None:
     # commit directories
     os.mkdir(f'{GIVE_DIR}/{GIVE_COMMITS_DIR}')
     os.mkdir(f'{GIVE_DIR}/{GIVE_COMMITS_DIR}/{GIVE_INITIAL_COMMIT}')
-    open(f'{GIVE_DIR}/{GIVE_COMMITS_DIR}/{GIVE_INITIAL_COMMIT}/{GIVE_BEFORE}', 'w')
-    open(f'{GIVE_DIR}/{GIVE_COMMITS_DIR}/{GIVE_INITIAL_COMMIT}/{GIVE_AFTER}', 'w')
+    os.mkdir(f'{GIVE_DIR}/{GIVE_COMMITS_DIR}/{GIVE_INITIAL_COMMIT}/{GIVE_BEFORE}')
+    os.mkdir(f'{GIVE_DIR}/{GIVE_COMMITS_DIR}/{GIVE_INITIAL_COMMIT}/{GIVE_AFTER}')
 
     # stage
     os.mkdir(f'{GIVE_DIR}/{GIVE_STAGING_DIR}')
